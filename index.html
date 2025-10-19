@@ -2,37 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Vigenere Cipher</title>
+    <title>vigenere Cipher</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://pyscript.net/releases/2024.9.1/core.js"></script>
   </head>
   <body>
-    <h1>Vigenere Cipher</h1>
+    <h1>vigenere Cipher</h1>
     <div>
-      <h2>Encode</h2>
+      <h2>encode</h2>
       <form id="formencode">
-        <label>Input:</label>
+        <label>input:</label>
         <textarea rows="5" cols="90" name="input"></textarea>
-        <label>Key:</label>
+        <label>key:</label>
         <textarea rows="3" cols="35" name="key"></textarea>
-        <label>Charset:</label>
+        <label>charset:</label>
         <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
       </form>
-      <h3>Output:</h3>
+      <h3>output:</h3>
       <p id="encode">no input</p>
       <button id="copy-encode">copy</button>
     </div>
     <div>
-      <h2>Decode</h2>
+      <h2>decode</h2>
       <form id="formdecode">
-        <label>Input:</label>
+        <label>input:</label>
         <textarea rows="5" cols="90" name="input"></textarea>
-        <label>Key:</label>
+        <label>key:</label>
         <textarea rows="3" cols="35" name="key"></textarea>
-        <label>Charset:</label>
+        <label>charset:</label>
         <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
       </form>
-      <h3>Output:</h3>
+      <h3>output:</h3>
       <p id="decode">no input</p>
       <button id="copy-decode">copy</button>
     </div>
@@ -50,7 +50,7 @@ def encode(text, key, chars):
     result = ""
     for i, ch in enumerate(text):
         if ch in chars:
-            result += chars[((chars.index(ch) + chars.index(key[i])) % len(chars))+1]
+            result += chars[((chars.index(ch) + chars.index(key[i])) % len(chars))]
         else:
             result += ch
     return result
@@ -64,7 +64,7 @@ def decode(text, key, chars):
     result = ""
     for i, ch in enumerate(text):
         if ch in chars:
-            result += chars[((chars.index(ch) - chars.index(key[i])) % len(chars))-1]
+            result += chars[((chars.index(ch) - chars.index(key[i])) % len(chars))]
         else:
             result += ch
     return result
@@ -127,4 +127,5 @@ attach_listeners()
     </script>
   </body>
 </html>
+
 
