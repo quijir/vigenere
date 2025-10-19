@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>vigenere Cipher</title>
+    <title>vigenere cipher</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://pyscript.net/releases/2024.9.1/core.js"></script>
   </head>
   <body>
-    <h1>vigenere Cipher</h1>
+    <h1>vigenere cipher</h1>
     <div>
       <h2>encode</h2>
       <form id="formencode">
@@ -41,7 +41,6 @@ from js import document, window, navigator
 from pyodide.ffi import create_proxy
 import math
 
-
 def encode(text, key, chars):
     if not key:
         return text
@@ -54,7 +53,6 @@ def encode(text, key, chars):
         else:
             result += ch
     return result
-
 
 def decode(text, key, chars):
     if not key:
@@ -89,8 +87,6 @@ def collect_encode(event=None):
         data.get("charset", "abcdefghijklmnopqrstuvwxyz")
     )
     document.querySelector("#encode").innerHTML = out if out else "no input"
-
-
 def collect_decode(event=None):
     form = document.getElementById("formdecode")
     if not form:
@@ -103,7 +99,6 @@ def collect_decode(event=None):
     )
     document.querySelector("#decode").innerHTML = out if out else "no input"
 
-
 def attach_listeners():
     encode_form = document.getElementById("formencode")
     decode_form = document.getElementById("formdecode")
@@ -115,17 +110,15 @@ def attach_listeners():
     global encode_proxy, decode_proxy
     encode_proxy = create_proxy(collect_encode)
     decode_proxy = create_proxy(collect_decode)
-
     encode_form.addEventListener("input", encode_proxy)
     decode_form.addEventListener("input", decode_proxy)
-
     collect_encode()
     collect_decode()
-
 
 attach_listeners()
     </script>
   </body>
 </html>
+
 
 
