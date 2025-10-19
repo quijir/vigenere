@@ -41,25 +41,9 @@ from js import document, window, navigator
 from pyodide.ffi import create_proxy
 import math
 
-def decode(text,key,chars):
-  if chars == chars.lower():
-    text = text.lower()
-  elif chars == chars.upper():
-    text = text.upper()
-  decoded = ""
-  key = key.lower()
-  old_key = key
-  j = 0
-  for i in range(math.ceil(len(text)/len(key))):
-    key += old_key
-  for i in range(len(text)):
-    if text[i] in chars:
-      decoded += chars[(chars.index(text[i])+chars.index(key[j]))%len(chars)]
-      j+=1
-    else:
-      decoded += text[i]
-  return decoded
 def encode(text,key,chars):
+  if not key:
+    return text
   if chars == chars.lower():
     text = text.lower()
   elif chars == chars.upper():
@@ -72,11 +56,31 @@ def encode(text,key,chars):
     key += old_key
   for i in range(len(text)):
     if text[i] in chars:
-      encoded += chars[(chars.index(text[i])-chars.index(key[j]))%len(chars)]
+      encoded += chars[(chars.index(text[i])+chars.index(key[j]))%len(chars)]
       j+=1
     else:
       encoded += text[i]
   return encoded
+def decode(text,key,chars):
+  if not key:
+    return text
+  if chars == chars.lower():
+    text = text.lower()
+  elif chars == chars.upper():
+    text = text.upper()
+  decoded = ""
+  key = key.lower()
+  old_key = key
+  j = 0
+  for i in range(math.ceil(len(text)/len(key))):
+    key += old_key
+  for i in range(len(text)):
+    if text[i] in chars:
+      decoded += chars[(chars.index(text[i])-chars.index(key[j]))%len(chars)]
+      j+=1
+    else:
+      decoded += text[i]
+  return decoded
       
 def copy_encode(event):
     text = document.getElementById("encode").innerText
@@ -130,6 +134,7 @@ attach_listeners()
     </script>
   </body>
 </html>
+
 
 
 
