@@ -41,32 +41,35 @@ from js import document, window, navigator
 from pyodide.ffi import create_proxy
 import math
 
-def encode(text, key, chars):
-    if not key:
-        return text
-    key = key.lower()
-    key = (key * math.ceil(len(text) / len(key)))[:len(text)]
-    result = ""
-    for i, ch in enumerate(text):
-        if ch in chars:
-            result += chars[((chars.index(ch) + chars.index(key[i])) % len(chars))]
-        else:
-            result += ch
-    return result
-
-def decode(text, key, chars):
-    if not key:
-        return text
-    key = key.lower()
-    key = (key * math.ceil(len(text) / len(key)))[:len(text)]
-    result = ""
-    for i, ch in enumerate(text):
-        if ch in chars:
-            result += chars[((chars.index(ch) - chars.index(key[i])) % len(chars))]
-        else:
-            result += ch
-    return result
-
+def decode(text,key,chars):
+  decoded = ""
+  key = key.lower()
+  old_key = key
+  j = 0
+  for i in range(math.ceil(len(text)/len(key))):
+    key += old_key
+  for i in range(len(text)):
+    if text[i] in chars:
+      decoded += chars[(chars.index(text[i])+chars.index(key[j]))%len(chars)]
+      j+=1
+    else:
+      decoded += text[i]
+  return decoded
+def encode(text,key,chars):
+  encoded = ""
+  key = key.lower()
+  old_key = key
+  j = 0
+  for i in range(math.ceil(len(text)/len(key))):
+    key += old_key
+  for i in range(len(text)):
+    if text[i] in chars:
+      encoded += chars[(chars.index(text[i])-chars.index(key[j]))%len(chars)]
+      j+=1
+    else:
+      encoded += text[i]
+  return encoded
+      
 def copy_encode(event):
     text = document.getElementById("encode").innerText
     navigator.clipboard.writeText(text)
@@ -119,6 +122,7 @@ attach_listeners()
     </script>
   </body>
 </html>
+
 
 
 
