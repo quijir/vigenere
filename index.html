@@ -42,6 +42,10 @@ from pyodide.ffi import create_proxy
 import math
 
 def decode(text,key,chars):
+  if chars == chars.lower():
+    text = text.lower()
+  elif chars == chars.upper():
+    text = text.upper()
   decoded = ""
   key = key.lower()
   old_key = key
@@ -56,6 +60,10 @@ def decode(text,key,chars):
       decoded += text[i]
   return decoded
 def encode(text,key,chars):
+  if chars == chars.lower():
+    text = text.lower()
+  elif chars == chars.upper():
+    text = text.upper()
   encoded = ""
   key = key.lower()
   old_key = key
@@ -122,6 +130,7 @@ attach_listeners()
     </script>
   </body>
 </html>
+
 
 
 
