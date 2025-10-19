@@ -6,39 +6,36 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://pyscript.net/releases/2024.9.1/core.js"></script>
   </head>
-
   <body>
     <h1>Vigenere Cipher</h1>
-<div>
-  <h2>Encode</h2>
-  <form id="formencode">
-    <label>Input:</label>
-    <textarea rows="5" cols="90" name="input"></textarea>
-    <label>Key:</label>
-    <textarea rows="3" cols="35" name="key"></textarea>
-    <label>Charset:</label>
-    <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
-  </form>
-  <h3>Output:</h3>
-  <p id="encode">no input</p>
-  <button id="copy-encode">copy</button>
-</div>
-
-<div>
-  <h2>Decode</h2>
-  <form id="formdecode">
-    <label>Input:</label>
-    <textarea rows="5" cols="90" name="input"></textarea>
-    <label>Key:</label>
-    <textarea rows="3" cols="35" name="key"></textarea>
-    <label>Charset:</label>
-    <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
-  </form>
-  <h3>Output:</h3>
-  <p id="decode">no input</p>
-  <button id="copy-decode">copy</button>
-</div>
-
+    <div>
+      <h2>Encode</h2>
+      <form id="formencode">
+        <label>Input:</label>
+        <textarea rows="5" cols="90" name="input"></textarea>
+        <label>Key:</label>
+        <textarea rows="3" cols="35" name="key"></textarea>
+        <label>Charset:</label>
+        <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
+      </form>
+      <h3>Output:</h3>
+      <p id="encode">no input</p>
+      <button id="copy-encode">copy</button>
+    </div>
+    <div>
+      <h2>Decode</h2>
+      <form id="formdecode">
+        <label>Input:</label>
+        <textarea rows="5" cols="90" name="input"></textarea>
+        <label>Key:</label>
+        <textarea rows="3" cols="35" name="key"></textarea>
+        <label>Charset:</label>
+        <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
+      </form>
+      <h3>Output:</h3>
+      <p id="decode">no input</p>
+      <button id="copy-decode">copy</button>
+    </div>
     <script type="py">
 from js import document, window, navigator
 from pyodide.ffi import create_proxy
@@ -130,3 +127,4 @@ attach_listeners()
     </script>
   </body>
 </html>
+
