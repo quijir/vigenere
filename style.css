@@ -55,7 +55,7 @@ button {
 button:hover {
     background-color: #ccc !important;
 }
-p {
+.output {
     text-wrap: auto;
     overflow-wrap: break-word;
     min-height: 100px;
@@ -64,6 +64,15 @@ p {
     margin: 15px auto;
     width: 100%;
     border: 2px solid #babac7;
+}
+#details {
+    display: flex;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    width: 900px;
+    flex-shrink: 1;
+    margin: auto;
 }
 py-error {
     display: none !important;
