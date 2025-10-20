@@ -45,9 +45,9 @@ def decode(text,key,chars):
 
 def details():
    if document.querySelector('p').innerHTML:
-      document.querySelector('p').innerHTML = "The vigenere cipher is a cipher where each letter of the input will be encoded by a different caesar cipher with the offset of the letter with the same index in the key"
-   else:
       document.querySelector('p').innerHTML = ""
+   else:
+      document.querySelector('p').innerHTML = "The vigenere cipher is a cipher where each letter of the input will be encoded by a different caesar cipher with the offset of the letter with the same index in the key"
 def copy_encode(event):
     text = document.getElementById("encode").innerText
     navigator.clipboard.writeText(text)
@@ -97,3 +97,4 @@ def attach_listeners():
     collect_decode()
 
 attach_listeners()
+
