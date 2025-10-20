@@ -65,15 +65,6 @@ button:hover {
     width: 100%;
     border: 2px solid #babac7;
 }
-#details {
-    display: flex;
-    border: none;
-    cursor: pointer;
-    border-radius: 0;
-    width: 900px;
-    flex-shrink: 1;
-    margin: auto;
-}
 py-error {
     display: none !important;
 }
@@ -91,3 +82,4 @@ a:hover {
 a:visited {
     color: #4a1575;
 }
+
