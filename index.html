@@ -8,6 +8,8 @@
   </head>
   <body>
     <h1>vigenere cipher</h1>
+    <button onclick="details()" id="details">Details</button>
+    <p></p>
     <div>
       <h2>encode</h2>
       <form id="formencode">
@@ -19,7 +21,7 @@
         <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
       </form>
       <h3>output:</h3>
-      <p id="encode">no input</p>
+      <p class="output" id="encode">no input</p>
       <button id="copy-encode">copy</button>
     </div>
     <div>
@@ -33,7 +35,7 @@
         <textarea rows="3" cols="35" name="charset">abcdefghijklmnopqrstuvwxyz</textarea>
       </form>
       <h3>output:</h3>
-      <p id="decode">no input</p>
+      <p class="output" id="decode">no input</p>
       <button id="copy-decode">copy</button>
     </div>
     <a href="https://github.com/quijir/vigenere" target="_blank">github repository</a>
