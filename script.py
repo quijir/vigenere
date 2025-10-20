@@ -42,7 +42,12 @@ def decode(text,key,chars):
     else:
       decoded += text[i]
   return decoded
-      
+
+def details():
+   if document.querySelector('p').innerHTML:
+      document.querySelector('p').innerHTML = "The vigenere cipher is a cipher where each letter of the input will be encoded by a different caesar cipher with the offset of the letter with the same index in the key"
+   else:
+      document.querySelector('p').innerHTML = ""
 def copy_encode(event):
     text = document.getElementById("encode").innerText
     navigator.clipboard.writeText(text)
